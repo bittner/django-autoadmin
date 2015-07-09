@@ -7,3 +7,5 @@ Development Lead
 
 Contributors
 ------------
+
+- Fabio C. Barrionuevo da Luz <bnafta at gmail dot com> `@luzfcb <https://github.com/luzfcb>`_
