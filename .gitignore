@@ -2,4 +2,5 @@
 dist/
 *.egg-info/
 /build
-
+.tox
+htmlcov/
