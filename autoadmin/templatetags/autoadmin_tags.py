@@ -23,4 +23,3 @@ def autoadmin_partial():
         return {'autoadmin_properties': AutoAdminSingleton.objects.get()}
     except AutoAdminSingleton.DoesNotExist:
         return {'autoadmin_properties': None}
-
