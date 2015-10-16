@@ -1,0 +1,6 @@
+[run]
+source=
+    autoadmin
+omit=
+    *migrations*
+
