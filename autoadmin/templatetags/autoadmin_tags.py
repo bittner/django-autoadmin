@@ -9,10 +9,18 @@ register = Library()
 
 @register.simple_tag(takes_context=True)
 def autoadmin_properties(context):
-    context['autoadmin_properties'] = AutoAdminSingleton.objects.get()
+    try:
+        context['autoadmin_properties'] = AutoAdminSingleton.objects.get()
+    except AutoAdminSingleton.DoesNotExist:
+        context['autoadmin_properties'] = None
+
     return ''
 
 
 @register.inclusion_tag('autoadmin/base.html')
 def autoadmin_partial():
-    return {'autoadmin_properties': AutoAdminSingleton.objects.get()}
+    try:
+        return {'autoadmin_properties': AutoAdminSingleton.objects.get()}
+    except AutoAdminSingleton.DoesNotExist:
+        return {'autoadmin_properties': None}
+
