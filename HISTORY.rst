@@ -1,3 +1,14 @@
+1.1.0 (2015-10-16)
+==================
+- Corrected a situation where project migrating database from old version not using django-autoadmin would have problem logging in.
+- Added a test project
+- Code coverage is now 100%
+- Added tox test support
+- Setting overrides now work all the time
+- django-autoadmin is now tested against Python 2.7, 3.2, 3.3, 3.4, Django 1.7 and 1.8
+- Removed all PEP8 warnings
+- All autoadmin code was moved from the management command to the AutoAdminSingleton manager
+
 1.0.1 (2015-06-14)
 ==================
 
