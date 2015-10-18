@@ -92,7 +92,7 @@ class AutoAdminSettingsTestCase(TestCase):
         self.assertEqual(AutoAdminSingleton.objects.get().password, TEST_GENERATED_PASSWORD)
 
     @override_settings(AUTOADMIN_USERNAME=TEST_ADMIN_USER_USERNAME)
-    def test_autoadmin_email(self):
+    def test_autoadmin_username(self):
         AutoAdminSingleton.objects.create_autoadmin()
         self.assertEqual(AutoAdminSingleton.objects.get().account.username, TEST_ADMIN_USER_USERNAME)
 
