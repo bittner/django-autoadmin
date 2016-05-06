@@ -1,3 +1,7 @@
+1.1.1 (2016-05-05)
+==================
+- Include missing migrations into package.
+
 1.1.0 (2015-10-16)
 ==================
 - Corrected a situation where project migrating database from old version not using django-autoadmin would have problem logging in.
