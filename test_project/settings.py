@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-
 """
 Django settings for test_project project.
 
@@ -24,10 +23,7 @@ SECRET_KEY = '7wx_3h9r=4@iu1x(j^8!e#%8v)eqsgsfx24^&(j$zbaqc8%4*a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -54,7 +50,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'test_project.urls'
 
 WSGI_APPLICATION = 'test_project.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -85,12 +80,28 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'test_project/templates'),
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+from django import VERSION
+if VERSION < (1, 10):
+    TEMPLATE_DEBUG = DEBUG
+    TEMPLATE_DIRS = (
+        os.path.join(BASE_DIR, 'test_project/templates'),
+    )
+else:
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': ['test_project/templates'],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ],
+            },
+        },
+    ]
 
 LOGGING = {
     'version': 1,
