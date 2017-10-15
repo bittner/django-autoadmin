@@ -1,15 +1,13 @@
-|PyPI badge| |Installs badge| |License badge| |Wheel badge|
+Django Autoadmin |latest-version|
+=================================
+
+|build-status| |code-health| |python-support| |wheel-support| |license|
 
 Description
 -----------
 Automatic admin users for Django projects.
 
 |Screenshot|
-
-License
--------
-
-This project is open sourced under the `MIT License`_.
 
 Installation
 ------------
@@ -45,15 +43,26 @@ Contribute
 - Make sure to add yourself to the `AUTHORS file`_.
 - Send a pull request
 
-.. _`MIT License`: https://github.com/rosarior/django-autoadmin/blob/master/AUTHORS.rst
 .. _`the repository`: http://github.com/rosarior/django-autoadmin
 .. _`AUTHORS file`: https://github.com/rosarior/django-autoadmin/blob/master/AUTHORS.rst
 .. |Screenshot| image:: https://raw.githubusercontent.com/rosarior/django-autoadmin/master/Screenshot.png
 
 
-.. |Installs badge| image:: http://img.shields.io/pypi/dm/django-autoadmin.svg?style=flat
-   :target: https://crate.io/packages/django-autoadmin/
-.. |PyPI badge| image:: http://img.shields.io/pypi/v/django-autoadmin.svg?style=flat
-   :target: http://badge.fury.io/py/django-autoadmin
-.. |Wheel badge| image:: http://img.shields.io/badge/wheel-yes-green.svg?style=flat
-.. |License badge| image:: http://img.shields.io/badge/license-MIT-green.svg?style=flat
+.. |latest-version| image:: https://img.shields.io/pypi/v/django-autoadmin.svg
+    :target: https://pypi.python.org/pypi/django-autoadmin
+    :alt: Latest version
+.. |build-status| image:: https://img.shields.io/travis/rosarior/django-autoadmin/master.svg
+    :target: https://travis-ci.org/rosarior/django-autoadmin
+    :alt: Build status
+.. |code-health| image:: https://landscape.io/github/rosarior/django-autoadmin/master/landscape.svg?style=flat
+    :target: https://landscape.io/github/rosarior/django-autoadmin/master
+    :alt: Code health
+.. |python-support| image:: https://img.shields.io/pypi/pyversions/django-autoadmin.svg
+    :target: https://pypi.python.org/pypi/django-autoadmin
+    :alt: Python versions
+.. |wheel-support| image:: https://img.shields.io/pypi/wheel/django-autoadmin.svg
+    :target: https://github.com/rosarior/django-autoadmin/blob/master/setup.cfg
+    :alt: Wheel support
+.. |license| image:: https://img.shields.io/pypi/l/django-autoadmin.svg
+    :target: https://github.com/rosarior/django-autoadmin/blob/master/LICENSE
+    :alt: Software license

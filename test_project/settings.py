@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
+import django
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -80,8 +81,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-from django import VERSION
-if VERSION < (1, 10):
+if django.VERSION < (1, 10):
     TEMPLATE_DEBUG = DEBUG
     TEMPLATE_DIRS = (
         os.path.join(BASE_DIR, 'test_project/templates'),
@@ -108,21 +108,22 @@ LOGGING = {
     'disable_existing_loggers': True,
     'formatters': {
         'intermediate': {
-            'format': '%(name)s <%(process)d> [%(levelname)s] "%(funcName)s() %(message)s"'
+            'format': '%(name)s <%(process)d> [%(levelname)s]'
+                      ' "%(funcName)s() %(message)s"'
         },
     },
     'handlers': {
-        'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
-            'formatter': 'intermediate'
-        }
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'intermediate',
+        },
     },
     'loggers': {
         'autoadmin': {
-            'handlers':['console'],
+            'handlers': ['console'],
             'propagate': True,
-            'level':'DEBUG',
+            'level': 'DEBUG',
         },
-    }
+    },
 }
