@@ -66,7 +66,8 @@ class AutoAdminSingletonManager(models.Manager):
 class AutoAdminSingleton(SingletonModel):
     account = models.ForeignKey(
         settings.AUTH_USER_MODEL, blank=True, null=True,
-        verbose_name=_('Account')
+        verbose_name=_('Account'),
+        on_delete=models.CASCADE,
     )
     password = models.CharField(
         blank=True, max_length=128, null=True, verbose_name=_('Password')

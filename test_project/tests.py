@@ -2,8 +2,12 @@ from __future__ import unicode_literals
 
 from django.contrib.auth import get_user_model
 from django.core import management
-from django.core.urlresolvers import reverse
 from django.test import TestCase, override_settings
+
+try:
+    from django.core.urlresolvers import reverse
+except ImportError:
+    from django.urls import reverse
 
 from autoadmin.models import AutoAdminSingleton
 from autoadmin.settings import USERNAME
@@ -41,7 +45,7 @@ class AutoAdminHandlerTestCase(TestCase):
 
 class AutoAdminManagementCommandTestCase(TestCase):
     def setUp(self):
-        management.call_command('createautoadmin', interactive=False)
+        management.call_command('createautoadmin')
 
     def tearDown(self):
         AutoAdminSingleton.objects.all().delete()

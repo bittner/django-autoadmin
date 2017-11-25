@@ -48,6 +48,19 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+if django.VERSION >= (1, 10):
+    INSTALLED_APPS = list(INSTALLED_APPS)
+    MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ]
+    del MIDDLEWARE_CLASSES
+
 ROOT_URLCONF = 'test_project.urls'
 
 WSGI_APPLICATION = 'test_project.wsgi.application'
