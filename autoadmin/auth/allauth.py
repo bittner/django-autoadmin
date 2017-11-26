@@ -1,7 +1,12 @@
 """
 Authentication adapters for Allauth
 """
-from allauth.account.adapter import DefaultAccountAdapter
+try:
+    from allauth.account.adapter import DefaultAccountAdapter
+except ImportError:
+    print('ERROR: This authentication adapter requires django-allauth.')
+    raise
+
 from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import ugettext as _
