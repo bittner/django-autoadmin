@@ -8,4 +8,5 @@ Development Lead
 Contributors
 ------------
 
+- Peter Bittner `@bittner <https://github.com/bittner>`_
 - Fabio C. Barrionuevo da Luz <bnafta at gmail dot com> `@luzfcb <https://github.com/luzfcb>`_
