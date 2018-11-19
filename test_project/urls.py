@@ -6,13 +6,6 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    url(r'^accounts/login/$', auth_views.login),
+    url(r'^accounts/login/$', auth_views.LoginView.as_view()),
     url(r'^mock_view/', views.mock_view, name='mock_view'),
 ]
-
-try:
-    # Django <= 1.9 uses `patterns`
-    from django.conf.urls import patterns
-    urlpatterns = patterns('', *urlpatterns)
-except ImportError:
-    pass
