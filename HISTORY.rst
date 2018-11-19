@@ -1,3 +1,10 @@
+1.1.0 (unreleased)
+==================
+
+- Add AllAuth integration (AutoadminAccountAdapter)
+- Support Django 1.11, 2.0, 2.1
+- Run tests automatically with Tox and Travis CI
+
 1.0.1 (2015-06-14)
 ==================
 
