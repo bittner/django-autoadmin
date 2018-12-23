@@ -1,9 +1,24 @@
-1.1.0 (unreleased)
+1.2.0 (unreleased)
 ==================
 
 - Add AllAuth integration (AutoadminAccountAdapter)
 - Support Django 1.11, 2.0, 2.1
 - Run tests automatically with Tox and Travis CI
+
+1.1.1 (2016-05-05)
+==================
+- Include missing migrations into package.
+
+1.1.0 (2015-10-16)
+==================
+- Corrected a situation where project migrating database from old version not using django-autoadmin would have problem logging in.
+- Added a test project
+- Code coverage is now 100%
+- Added tox test support
+- Setting overrides now work all the time
+- django-autoadmin is now tested against Python 2.7, 3.2, 3.3, 3.4, Django 1.7 and 1.8
+- Removed all PEP8 warnings
+- All autoadmin code was moved from the management command to the AutoAdminSingleton manager
 
 1.0.1 (2015-06-14)
 ==================

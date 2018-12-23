@@ -54,6 +54,7 @@ setup(
     package_dir={'autoadmin': 'autoadmin'},
     packages=[
         'autoadmin',
+        'autoadmin.migrations',
         'autoadmin.templatetags',
         'autoadmin.management',
         'autoadmin.management.commands',
