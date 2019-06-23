@@ -2,8 +2,12 @@ from __future__ import unicode_literals
 
 from django.contrib.auth import get_user_model
 from django.core import management
-from django.core.urlresolvers import reverse
 from django.test import TestCase, override_settings
+
+try:
+    from django.core.urlresolvers import reverse
+except ImportError:
+    from django.urls import reverse
 
 from autoadmin.models import AutoAdminSingleton
 from autoadmin.settings import USERNAME
@@ -28,19 +32,20 @@ class AutoAdminHandlerTestCase(TestCase):
         AutoAdminSingleton.objects.all().delete()
 
     def test_post_admin_creation(self):
-        self.assertEqual(AutoAdminSingleton.objects.get().account.username, USERNAME())
+        self.assertEqual(AutoAdminSingleton.objects.get().account.username,
+                         USERNAME())
 
         user = AutoAdminSingleton.objects.get().account
 
         user.set_password(TEST_ADMIN_USER_PASSWORD)
-        user.save(update_fields=('password',))
+        user.save(update_fields=['password'])
 
         self.assertEqual(AutoAdminSingleton.objects.get().account, None)
 
 
 class AutoAdminManagementCommandTestCase(TestCase):
     def setUp(self):
-        management.call_command('createautoadmin', interactive=False)
+        management.call_command('createautoadmin')
 
     def tearDown(self):
         AutoAdminSingleton.objects.all().delete()
@@ -79,22 +84,26 @@ class AutoAdminSettingsTestCase(TestCase):
     @override_settings(AUTOADMIN_EMAIL=TEST_ADMIN_USER_EMAIL)
     def test_autoadmin_email(self):
         AutoAdminSingleton.objects.create_autoadmin()
-        self.assertEqual(AutoAdminSingleton.objects.get().account.email, TEST_ADMIN_USER_EMAIL)
+        self.assertEqual(AutoAdminSingleton.objects.get().account.email,
+                         TEST_ADMIN_USER_EMAIL)
 
     @override_settings(AUTOADMIN_PASSWORD=TEST_ADMIN_USER_PASSWORD)
     def test_autoadmin_password(self):
         AutoAdminSingleton.objects.create_autoadmin()
-        self.assertEqual(AutoAdminSingleton.objects.get().password, TEST_ADMIN_USER_PASSWORD)
+        self.assertEqual(AutoAdminSingleton.objects.get().password,
+                         TEST_ADMIN_USER_PASSWORD)
 
     @override_settings(AUTOADMIN_PASSWORD=password_generator)
     def test_autoadmin_password_function(self):
         AutoAdminSingleton.objects.create_autoadmin()
-        self.assertEqual(AutoAdminSingleton.objects.get().password, TEST_GENERATED_PASSWORD)
+        self.assertEqual(AutoAdminSingleton.objects.get().password,
+                         TEST_GENERATED_PASSWORD)
 
     @override_settings(AUTOADMIN_USERNAME=TEST_ADMIN_USER_USERNAME)
     def test_autoadmin_username(self):
         AutoAdminSingleton.objects.create_autoadmin()
-        self.assertEqual(AutoAdminSingleton.objects.get().account.username, TEST_ADMIN_USER_USERNAME)
+        self.assertEqual(AutoAdminSingleton.objects.get().account.username,
+                         TEST_ADMIN_USER_USERNAME)
 
 
 class AutoAdminViewCase(TestCase):
@@ -115,8 +124,10 @@ class AutoAdminViewCase(TestCase):
     def test_login_ok_view(self):
         autoadmin = AutoAdminSingleton.objects.get()
         logged_in = self.client.login(
-            username=autoadmin.account, password=autoadmin.password
+            username=autoadmin.account,
+            password=autoadmin.password
         )
+        self.assertTrue(logged_in)
 
         response = self.client.get(reverse('mock_view'), follow=True)
 

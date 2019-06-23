@@ -4,4 +4,4 @@ dist/
 /build
 .tox
 htmlcov/
-.coverage.tox
+.coverage.tox*

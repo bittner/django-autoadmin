@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django-solo = ">=1.1.2,<2"
+
+[dev-packages]
+coverage = ">=3.7.1"
+tox = "*"
+
+[requires]

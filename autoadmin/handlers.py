@@ -5,6 +5,8 @@ def auto_admin_account_password_change(sender, instance, **kwargs):
     from .models import AutoAdminSingleton
 
     auto_admin_properties, created = AutoAdminSingleton.objects.get_or_create()
+    del created
+
     if instance == auto_admin_properties.account and \
        instance.password != auto_admin_properties.password_hash:
 

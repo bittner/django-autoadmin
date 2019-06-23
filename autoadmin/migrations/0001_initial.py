@@ -36,7 +36,8 @@ class Migration(migrations.Migration):
                 (
                     'account', models.ForeignKey(
                         verbose_name='Account', blank=True,
-                        to=settings.AUTH_USER_MODEL, null=True
+                        to=settings.AUTH_USER_MODEL, null=True,
+                        on_delete=models.CASCADE
                     )
                 ),
             ],
