@@ -10,6 +10,6 @@ __copyright__ = 'Copyright 2014 Roberto Rosario'
 __license__ = 'MIT'
 __title__ = 'django-autoadmin'
 __url__ = 'https://github.com/rosarior/django-autoadmin'
-__version__ = '1.1.1'
+__version__ = '1.2.0'
 
 default_app_config = 'autoadmin.apps.AutoAdminAppConfig'
