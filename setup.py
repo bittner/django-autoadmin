@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 
-from os.path import abspath, dirname, join
 import os
 import sys
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from os.path import abspath, dirname, join
+from setuptools import find_packages, setup
 
 import autoadmin as package
 
@@ -29,17 +26,17 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Framework :: Django',
+        'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
     description=package.__doc__.strip(),
     include_package_data=True,
@@ -52,13 +49,7 @@ setup(
     name=package.__title__,
     package_data={'': ['LICENSE']},
     package_dir={'autoadmin': 'autoadmin'},
-    packages=[
-        'autoadmin',
-        'autoadmin.migrations',
-        'autoadmin.templatetags',
-        'autoadmin.management',
-        'autoadmin.management.commands',
-    ],
+    packages=find_packages(exclude=['test*']),
     platforms=['any'],
     url=package.__url__,
     version=package.__version__,
