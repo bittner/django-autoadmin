@@ -41,6 +41,9 @@ setup(
     description=package.__doc__.strip(),
     include_package_data=True,
     install_requires=read_file('requirements/common.txt').splitlines(),
+    extras_require={
+        'allauth':  ['django-allauth'],
+    },
     license=package.__license__,
     long_description='\n\n'.join([
         read_file('README.rst'),

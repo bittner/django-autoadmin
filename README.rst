@@ -16,9 +16,9 @@ Installation
 Simple Setup
 ~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ pip install django-autoadmin
+    pip install django-autoadmin
 
 * Add ``'autoadmin',`` to your project's ``INSTALLED_APPS`` list.
 * Load the **autoadmin_tags** in your login template.
@@ -46,6 +46,13 @@ Social-Auth Setup
 Autoadmin can integrate with `django-allauth`_ and authorize and promote admin
 users automatically.  Users signing up that have their email address listed in
 the ``ADMINS`` Django settings are automatically recognized.
+
+You need to make sure `django-allauth`_ is installed.  Optionally, it is
+possible to install it with ``django-autoadmin`` as an extra dependency:
+
+.. code-block:: console
+
+    pip install django-autoadmin[allauth]
 
 Django settings needed to activate this feature:
 
